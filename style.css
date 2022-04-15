@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(0deg, rgba(2, 72, 2, 1) 0%, rgba(115, 247, 132, 1) 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 16px;
+  box-sizing: border-box;
+}
+
+.dealer,
+.player {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 150px;
+  font-size: 1.5rem;
+}
+
+.dealer {
+  background-color: rgb(200, 246, 206, 0.5);
+  height: 250px;
+  box-sizing: border-box;
+}
+
+.player {
+  background-color: rgba(51, 73, 51, 0.5);
+  height: 250px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
+}
+
+.name {
+  margin-left: 64px;
+}
+.dcards,
+.pcards {
+  position: absolute;
+  display: inline-block;
+  margin-top: 100px;
+  margin-left: 100px;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+}
+
+.score {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.3rem;
+}
+
+.score-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: black 5px solid;
+  padding: 8px;
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+  gap: 32px;
+}
+
+.result-text {
+  display: block;
+  text-align: center;
+  font-size: 1.75rem;
+  margin-top: 32px;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
