@@ -1,7 +1,4 @@
 // Selecting elements
-
-const dealerEl = document.querySelector(".player--0");
-const playerEl = document.querySelector(".player--1");
 let dealerScoreEl = document.getElementById("score--0");
 let playerScoreEl = document.getElementById("score--1");
 const dealerCardsEl = document.getElementById("dealer-cards");
@@ -16,89 +13,83 @@ const btnStay = document.querySelector(".btn--stay");
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const suits = ["\u2764", "\u2666", "\u2660", "\u2663"];
 
-let deck = [],
-  dealerCards = [],
+let dealerCards = [],
   playerCards = [],
   dealerScore = 0,
-  playerScore = 0,
-  gameStart = false,
-  gameOver = false,
-  playerWon = false;
-
-// New game funcionality
-btnNewGame.addEventListener("click", function () {
-  gameStart = true;
-  gameOver = false;
-  playerWon = false;
-
-  dealerScoreEl.textContent = 0;
-  playerScoreEl.textContent = 0;
-  resultText.textContent = "";
-  dealerCardsEl.classList.add("hidden");
-  playerCardsEl.classList.add("hidden");
-  resultText.classList.add("hidden");
-});
+  playerScore = 0;
 
 // Deck of cards
 function createDeck() {
   let deck = [];
   for (let i = 0; i < suits.length; i++) {
     for (let j = 0; j < values.length; j++) {
-      let card = { Value: values[j], Suit: suits[i] };
+      let card = { value: values[j], suit: suits[i] };
       deck.push(card);
     }
   }
   return deck;
 }
-//console.log(createDeck());
 
 // Shuffle the cards
 function shuffleDeck(deck) {
   for (let i = 0; i < deck.length; i++) {
-    let j = Math.floor(Math.random() * deck.length);
-    let temp = deck[j];
-    deck[j] = deck[i];
-    deck[i] = temp;
+    let j = Math.floor(Math.random() * deck.length); // random number from 1 to 52 (npr 30)
+    let temp = deck[j]; // assigns random card from deck to temp variable
+    deck[j] = deck[i]; // 30 karta u decku će postati i-ta karta u decku
+    deck[i] = temp; // i-ta karta će postat j-ta (30) karta u decku
   }
+
+  return deck;
 }
 
-let cards = createDeck();
-shuffleDeck(cards);
+const orderedDeck = createDeck();
+let shuffledDeck = shuffleDeck([...orderedDeck]);
 
 // Display two random cards for dealer and player
-function dealCard(deck) {
-  return deck.shift();
+function dealCard() {
+  return shuffledDeck.shift();
 }
 
-function getCardString(card) {
-  return `${card.Value} of ${card.Suit}`;
+function getCard(card) {
+  const color = card.suit === "\u2764" || card.suit === "\u2666" ? "red" : "black";
+  return `${card.value} of <span style="color: ${color}">${card.suit}</span>`;
 }
 
 function showText() {
-  let dealerCardString = "";
+  let dealerCard = "";
   for (let i = 0; i < dealerCards.length; i++) {
-    dealerCardString += getCardString(dealerCards[i]) + "<br />";
+    dealerCard += getCard(dealerCards[i]) + "<br />";
   }
 
-  let playerCardString = "";
+  let playerCard = "";
   for (let i = 0; i < playerCards.length; i++) {
-    playerCardString += getCardString(playerCards[i]) + "<br />";
+    playerCard += getCard(playerCards[i]) + "<br />";
   }
 
-  dealerCardsEl.innerHTML = dealerCardString;
-  playerCardsEl.innerHTML = playerCardString;
-
-  /*  if (gameOver) {
-    if (playerWon) {
-      resultText.innerText += "You WIN!";
-    } else {
-      resultText.innerText += "Dealer WINS!";
-    } */
+  dealerCardsEl.innerHTML = dealerCard;
+  playerCardsEl.innerHTML = playerCard;
 }
 
 // Defining card values
-function cardValue(card) {
-  switch (card.Value) {
+function getCardValue(value) {
+  const cardValueMap = {
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+    J: 10,
+    Q: 10,
+    K: 10,
+    A: 11,
+  };
+
+  return cardValueMap[value];
+  /*   switch (card.value) {
     case "2":
       return 2;
     case "3":
@@ -116,22 +107,21 @@ function cardValue(card) {
     case "9":
       return 9;
     case "10":
-      return 10;
     case "J":
     case "Q":
     case "K":
       return 10;
     case "A":
       return 11;
-  }
+  } */
 }
 
 // Calculate the dealer & player score
-function getScore(cardArray) {
+function getScore(cards) {
   let score = 0;
-  for (let i = 0; i < cardArray.length; i++) {
-    let card = cardArray[i];
-    score += cardValue(card);
+  for (let i = 0; i < cards.length; i++) {
+    let card = cards[i];
+    score += getCardValue(card.value);
   }
   return score;
 }
@@ -139,66 +129,82 @@ function getScore(cardArray) {
 function updateScore() {
   dealerScore = dealerScoreEl.textContent = getScore(dealerCards);
   playerScore = playerScoreEl.textContent = getScore(playerCards);
-  console.log(dealerScore, playerScore);
 }
+
+// New game funcionality
+btnNewGame.addEventListener("click", function () {
+  shuffledDeck = shuffleDeck([...orderedDeck]);
+  console.log(shuffledDeck.length);
+  dealerScoreEl.textContent = 0;
+  playerScoreEl.textContent = 0;
+  resultText.textContent = "";
+  dealerCardsEl.classList.add("hidden");
+  playerCardsEl.classList.add("hidden");
+  resultText.classList.add("hidden");
+  btnHit.disabled = false;
+  btnStay.disabled = false;
+  btnPlay.disabled = false;
+});
 
 // Play Button funcionality
 btnPlay.addEventListener("click", function () {
-  dealerCards = [dealCard(cards), dealCard(cards)];
-  playerCards = [dealCard(cards), dealCard(cards)];
+  dealerCards = [dealCard(), dealCard()];
+  playerCards = [dealCard(), dealCard()];
   showText();
   updateScore();
   dealerCardsEl.classList.remove("hidden");
   playerCardsEl.classList.remove("hidden");
-  console.log(dealerCards, playerCards);
+  checkScore(false);
 });
 
 // Hit Button funcionality
 btnHit.addEventListener("click", function () {
-  playerCards.push(dealCard(cards));
+  deal(false);
   updateScore();
   showText();
-  isItGameOver();
+  checkScore(false);
 });
-
-/* // Disable Hit Button
-function disableHitButton() {
-  btnHit.disabled = true;
-} */
 
 //Stay button funcionality
 btnStay.addEventListener("click", function () {
-  gameOver = true;
-  isItGameOver();
+  deal(true);
+  updateScore();
+  checkScore(true);
   showText();
 });
 
+function deal(isPlayerDone) {
+  if (dealerScore <= 16) {
+    if (dealerScore < playerScore) {
+      dealerCards.push(dealCard());
+    }
+  }
+  if (!isPlayerDone) {
+    playerCards.push(dealCard());
+  }
+}
+
 // Game Over rules and results
-function isItGameOver() {
-  while (dealerScore <= 16) {
-    dealerCards.push(dealCard(cards));
-    updateScore();
+function checkScore(isGameEnded) {
+  if (playerScore < 21 && !isGameEnded) {
+    return;
   }
 
   if (dealerScore > playerScore && dealerScore <= 21) {
-    playerWon = false;
-    gameOver = true;
     resultText.innerText += "Dealer WINS!";
   } else if (playerScore > 21) {
-    playerWon = false;
-    gameOver = true;
     resultText.innerText += "You BUSTED!";
   } else if (playerScore > dealerScore || dealerScore > 21) {
     if (playerScore === 21) {
       resultText.innerText += "You hit BLACKJACK!";
     } else {
-      playerWon = true;
-      gameOver = true;
       resultText.innerText += "YOU WIN!";
     }
   } else {
-    gameOver = true;
     resultText.innerText += "It's a DRAW!";
   }
   resultText.classList.remove("hidden");
+  btnHit.disabled = true;
+  btnStay.disabled = true;
+  btnPlay.disabled = true;
 }
