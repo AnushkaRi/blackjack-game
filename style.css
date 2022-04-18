@@ -17,7 +17,7 @@ body {
 }
 
 .wrapper {
-  max-width: 600px;
+  max-width: 1024px;
   width: 100%;
   margin: 0 auto;
   padding: 50px 16px;
@@ -26,6 +26,7 @@ body {
 .header {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .seinfeld {
   height: 150px;
@@ -37,14 +38,22 @@ body {
   font-size: 2.5rem;
 }
 
+.section {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .dealer,
 .player {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 150px;
+  gap: 50px;
   font-size: 1.5rem;
+  margin-right: 32px;
 }
 
 .newman {
@@ -62,21 +71,25 @@ body {
   display: inline-block;
   object-position: center;
   border-radius: 50%;
-  border: yellow 7px solid;
+  border: rgb(251, 219, 27) 7px solid;
 }
 
 .dealer {
   background-color: white;
   border: red solid 7px;
   height: 250px;
+  width: 500px;
+  margin-left: 20px;
   box-sizing: border-box;
 }
 
 .player {
   background-color: white;
-  border: yellow solid 7px;
+  border: rgb(251, 219, 27) solid 7px;
   height: 250px;
+  width: 500px;
   box-sizing: border-box;
+  margin-left: 20px;
   margin-top: 16px;
   margin-bottom: 32px;
 }
@@ -101,6 +114,10 @@ body {
   justify-content: flex-start;
   font-size: 1.5rem;
 }
+
+.score-label {
+  margin-top: 30px;
+}
 .score-number {
   font-size: 4rem;
   font-weight: 700;
@@ -111,27 +128,35 @@ body {
 .buttons {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
 .btn {
   position: relative;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   border: black 5px solid;
   padding: 8px;
   text-decoration: none;
   background-color: transparent;
   color: red;
-  gap: 32px;
+  margin-right: 20px;
+}
+
+.btn--new {
+  color: rgb(251, 219, 27);
+}
+.btn--hit,
+.btn--stay {
+  color: rgb(0, 13, 255);
 }
 
 .result-text {
   display: block;
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 2rem;
   margin-top: 32px;
   color: black;
 }
