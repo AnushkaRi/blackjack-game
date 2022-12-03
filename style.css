@@ -2,13 +2,12 @@
 
 html {
   font-size: 16px;
-  height: 100%;
 }
 
 body {
   font-size: 1rem;
   font-family: "Merriweather", serif;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   background: linear-gradient(180deg, rgba(0, 13, 255, 1) 0%, rgba(252, 252, 252, 1) 80%);
   background-size: cover;
@@ -17,112 +16,106 @@ body {
 }
 
 .wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 1024px;
-  width: 100%;
+  width: 90%;
   margin: 0 auto;
-  padding: 50px 16px;
-  box-sizing: border-box;
 }
+
 .header {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   justify-content: center;
+  margin-bottom: 16px;
 }
 .seinfeld {
-  height: 150px;
-  width: 300px;
-  margin-bottom: 16px;
+  height: 100px;
+  width: 200px;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .section {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row;
   justify-content: center;
   align-items: center;
+}
+
+.newman,
+.jerry {
+  width: 125px;
+  height: 125px;
+  display: inline-block;
+  object-position: center;
+  border-radius: 50%;
+  border: rgb(255, 0, 0) 7px solid;
+}
+
+.jerry {
+  border: rgb(251, 219, 27) 7px solid;
 }
 
 .dealer,
 .player {
   display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-flow: row;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  font-size: 1rem;
+  border: rgb(255, 0, 0) solid 7px;
+  height: 180px;
+  max-width: 300px;
+  width: 90%;
+  margin: 8px 32px 8px 20px;
   gap: 50px;
-  font-size: 1.5rem;
-  margin-right: 32px;
-}
-
-.newman {
-  width: 150px;
-  height: 150px;
-  display: inline-block;
-  object-position: center;
-  border-radius: 50%;
-  border: red 7px solid;
-}
-
-.jerry {
-  width: 150px;
-  height: 150px;
-  display: inline-block;
-  object-position: center;
-  border-radius: 50%;
-  border: rgb(251, 219, 27) 7px solid;
-}
-
-.dealer {
-  background-color: white;
-  border: red solid 7px;
-  height: 250px;
-  width: 500px;
-  margin-left: 20px;
-  box-sizing: border-box;
 }
 
 .player {
-  background-color: white;
   border: rgb(251, 219, 27) solid 7px;
-  height: 250px;
-  width: 500px;
-  box-sizing: border-box;
-  margin-left: 20px;
-  margin-top: 16px;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+}
+
+.cards {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 16px;
 }
 
 .name {
-  margin-left: 64px;
+  margin: 0 auto;
 }
 .dcards,
 .pcards {
-  position: absolute;
-  display: inline-block;
-  margin-top: 100px;
-  margin-left: 100px;
   font-size: 1.3rem;
   color: black;
+  margin: 8px auto;
 }
 
 .score {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
   align-items: center;
-  justify-content: flex-start;
   font-size: 1.5rem;
+  margin-top: 10px;
+  margin-right: 16px;
 }
 
 .score-label {
-  margin-top: 30px;
+  margin: 0 auto;
 }
 .score-number {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  color: black;
-  margin-top: 10px;
+  margin: 8px auto;
+  color: rgb(0, 13, 255);
 }
 
 .buttons {
@@ -135,13 +128,13 @@ body {
 .btn {
   position: relative;
   display: inline-block;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   border: black 5px solid;
   padding: 8px;
   text-decoration: none;
   background-color: transparent;
-  color: red;
+  color: rgb(255, 0, 0);
   margin-right: 20px;
 }
 
@@ -157,10 +150,101 @@ body {
   display: block;
   text-align: center;
   font-size: 2rem;
-  margin-top: 32px;
-  color: black;
+  margin-top: 16px;
+  color: rgb(0, 0, 0);
 }
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .seinfeld {
+    width: 150px;
+    height: 75px;
+  }
+  .title {
+    font-size: 1.2rem;
+    margin-left: 8px;
+  }
+
+  .newman,
+  .jerry {
+    width: 60px;
+    height: 60px;
+    border: rgb(255, 0, 0) 4px solid;
+  }
+
+  .jerry {
+    border: rgb(251, 219, 27) 4px solid;
+  }
+
+  .dealer,
+  .player {
+    display: flex;
+    flex-flow: row;
+    height: 150px;
+    width: 200px;
+    margin: 8px 16px 8px 10px;
+    border: rgb(255, 0, 0) solid 4px;
+  }
+
+  .player {
+    border: rgb(251, 219, 27) solid 4px;
+    margin-bottom: 16px;
+  }
+
+  .cards,
+  .score {
+    margin: 0 auto;
+  }
+
+  .cards {
+    margin-left: 10px;
+  }
+
+  .score {
+    margin-right: 10px;
+  }
+
+  .name,
+  .score-label {
+    font-size: 1.1rem;
+    margin: 8px auto;
+  }
+
+  .dcards,
+  .pcards {
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
+
+  .score-number {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    border: black 4px solid;
+    margin: 0 auto;
+  }
+
+  .btn-group-2 {
+    margin-top: 8px;
+  }
+
+  .btn--new,
+  .btn--hit {
+    margin-right: 8px;
+  }
+
+  .result-text {
+    font-size: 1.5rem;
+    margin-top: 16px;
+  }
 }
