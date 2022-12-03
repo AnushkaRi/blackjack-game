@@ -1,4 +1,4 @@
-# blackjack-game
+# Blackjack Game
 
-Play Live
+# Play Live
 https://anushkari.github.io/blackjack-game/
