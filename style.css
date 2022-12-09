@@ -145,6 +145,7 @@ body {
 
 .btn--new {
   color: rgb(251, 219, 27);
+  margin-right: 0px;
 }
 
 .modal {
@@ -260,7 +261,7 @@ body {
   }
 
   .modal-content {
-    margin: 375px auto;
+    margin: 40vh auto;
     padding: 5px;
     width: 250px;
     height: 125px;
@@ -269,6 +270,9 @@ body {
 
   .result-text {
     font-size: 1.5rem;
-    margin-top: 16px;
+  }
+
+  .btn--new {
+    margin-bottom: 10px;
   }
 }
