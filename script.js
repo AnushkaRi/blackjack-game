@@ -3,12 +3,14 @@ let dealerScoreEl = document.getElementById("score--0");
 let playerScoreEl = document.getElementById("score--1");
 const dealerCardsEl = document.getElementById("dealer-cards");
 const playerCardsEl = document.getElementById("player-cards");
+const modalEl = document.querySelector(".modal");
 const resultText = document.querySelector(".result-text");
 
 const btnNewGame = document.querySelector(".btn--new");
 const btnPlay = document.querySelector(".btn--play");
 const btnHit = document.querySelector(".btn--hit");
 const btnStay = document.querySelector(".btn--stay");
+const btnClose = document.querySelector(".btn--close");
 
 const values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 const suits = ["\u2764", "\u2666", "\u2660", "\u2663"];
@@ -118,6 +120,7 @@ btnNewGame.addEventListener("click", function () {
   btnHit.disabled = false;
   btnStay.disabled = false;
   btnPlay.disabled = false;
+  modalEl.style.display = "none";
 });
 
 // Play Button funcionality
@@ -177,6 +180,7 @@ function checkScore(isGameEnded) {
   } else {
     resultText.innerText += "It's a DRAW!";
   }
+  modalEl.style.display = "block";
   resultText.classList.remove("hidden");
   btnHit.disabled = true;
   btnStay.disabled = true;
