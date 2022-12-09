@@ -166,7 +166,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  margin: 20% auto;
+  margin: 40vh auto;
   padding: 10px;
   width: 350px;
   height: 150px;
@@ -261,7 +261,6 @@ body {
   }
 
   .modal-content {
-    margin: 40vh auto;
     padding: 5px;
     width: 250px;
     height: 125px;
