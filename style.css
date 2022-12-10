@@ -161,22 +161,26 @@ body {
 }
 
 .modal-content {
+  position: absolute;
+  top: 50%;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  margin: 3vh auto;
   padding: 10px;
-  width: 350px;
+  width: 300px;
   height: 150px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
   border: rgb(0, 0, 0) 7px solid;
 }
 
 .result-text {
   display: block;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: rgb(0, 0, 0);
   margin-bottom: 20px;
 }
@@ -264,6 +268,7 @@ body {
     padding: 5px;
     width: 250px;
     height: 125px;
+    margin-top: 5px;
     border: rgb(0, 0, 0) 4px solid;
   }
 
