@@ -1,8 +1,8 @@
 # Blackjack Game
 
-A Blackjack Game with popular Seinfeld characters built with HTML, CSS & JS.
+A responsive Blackjack Game with popular Seinfeld characters built with HTML, CSS & JS.
 
-![Blackjack_mini](https://github.com/AnushkaRi/blackjack-game/assets/93154379/cb74417d-c7d4-43d8-a5c2-66b80a9784e4)
+![Blackjack_mini](https://github.com/AnushkaRi/blackjack-game/assets/93154379/bfa0406f-c196-452b-8ae7-102bc08c0e47)
 
 
 # Play Live
