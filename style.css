@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 }
 .seinfeld {
   height: 100px;
@@ -45,6 +45,10 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+}
+
+.section-newman {
+  margin-bottom: 100px;
 }
 
 .newman,
@@ -123,6 +127,7 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 .btn {
@@ -169,8 +174,8 @@ body {
   align-items: center;
   background-color: #fff;
   padding: 10px;
-  width: 300px;
-  height: 150px;
+  width: 250px;
+  height: 125px;
   left: 50%;
   transform: translate(-50%, -50%);
   margin-top: 10px;
@@ -182,7 +187,7 @@ body {
   text-align: center;
   font-size: 1.7rem;
   color: rgb(0, 0, 0);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .hidden {
