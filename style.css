@@ -48,7 +48,7 @@ body {
 }
 
 .section-newman {
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 
 .newman,
@@ -127,7 +127,8 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 140px;
 }
 
 .btn {
@@ -138,7 +139,7 @@ body {
   border: black 5px solid;
   padding: 8px;
   text-decoration: none;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
   color: rgb(255, 0, 0);
   margin-right: 20px;
 }
@@ -167,7 +168,10 @@ body {
 
 .modal-content {
   position: absolute;
-  top: 50%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-55%, -50%);
+  margin-top: 10px;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -176,9 +180,7 @@ body {
   padding: 10px;
   width: 250px;
   height: 125px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin-top: 10px;
+
   border: rgb(0, 0, 0) 7px solid;
 }
 
